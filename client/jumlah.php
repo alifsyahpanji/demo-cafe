@@ -49,7 +49,7 @@ include("head.php");
                         <div class="mb-3">
                             <label for="keterangan" class="form-label">Keterangan</label>
                             <textarea class="form-control" id="keterangan" name="keterangan" rows="3"
-                                placeholder="Panas, Dingin, Manis atau Lainnya"></textarea>
+                                placeholder="Panas, Dingin, Manis, 1 Panas dan 1 Dingin atau Lainnya"></textarea>
                         </div>
 
 

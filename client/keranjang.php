@@ -6,7 +6,7 @@ $total_harga = 0;
 
 include("../env.php");
 
-$sql_menu = "SELECT keranjang.id, keranjang.jumlah, keranjang.keterangan, menu.nama, menu.harga FROM keranjang INNER JOIN menu ON keranjang.id_menu = menu.id WHERE keranjang.id_akun = $id_akun ORDER BY keranjang.id DESC";
+$sql_menu = "SELECT keranjang.id, keranjang.jumlah, keranjang.keterangan, menu.nama, menu.harga, menu.foto FROM keranjang INNER JOIN menu ON keranjang.id_menu = menu.id WHERE keranjang.id_akun = $id_akun ORDER BY keranjang.id DESC";
 $run_menu = mysqli_query($conn, $sql_menu);
 $count_menu = mysqli_num_rows($run_menu);
 $data_count = false;
@@ -77,6 +77,7 @@ include("head.php");
 
 
                     <div class="card card-margin-kerajang shadow" style="width: 290px;">
+                        <img src="../assets/image/file/<?php echo $row_keranjang["foto"]; ?>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <?php echo $row_keranjang["nama"]; ?>
