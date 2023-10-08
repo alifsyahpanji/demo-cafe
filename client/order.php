@@ -11,7 +11,7 @@ include("../env.php");
 
 # Keranjang
 
-$sql_menu = "SELECT keranjang.jumlah, menu.harga, menu.id AS id_menu FROM keranjang INNER JOIN menu ON keranjang.id_menu = menu.id WHERE keranjang.id_akun = $id_akun ";
+$sql_menu = "SELECT keranjang.jumlah, keranjang.keterangan, menu.harga, menu.id AS id_menu FROM keranjang INNER JOIN menu ON keranjang.id_menu = menu.id WHERE keranjang.id_akun = $id_akun ";
 $run_menu = mysqli_query($conn, $sql_menu);
 
 
@@ -30,8 +30,9 @@ while ($row_keranjang = mysqli_fetch_assoc($run_menu)) {
     $id_menu = $row_keranjang["id_menu"];
     $jumlah = $row_keranjang["jumlah"];
     $harga = $row_keranjang["harga"];
+    $keterangan = $row_keranjang["keterangan"];
 
-    $sql_detail_pesanan = "INSERT INTO detail_pesanan (id_pesanan, id_menu, jumlah, harga) VALUES ($id_pesanan, $id_menu, $jumlah, $harga)";
+    $sql_detail_pesanan = "INSERT INTO detail_pesanan (id_pesanan, id_menu, jumlah, harga, keterangan) VALUES ($id_pesanan, $id_menu, $jumlah, $harga, '$keterangan')";
     $run_detail_pesanan = mysqli_query($conn, $sql_detail_pesanan);
 
 }

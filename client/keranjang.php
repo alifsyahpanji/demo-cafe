@@ -51,7 +51,13 @@ include("head.php");
                             </div>
                         </div>
 
-                        <a href="order.php" class="btn btn-primary">Pesan Sekarang</a>
+                        <button class="btn btn-primary" onclick="pesan()">Pesan Sekarang</button>
+
+                        <div class="mt-3 deskripsi-informasi">Atau</div>
+
+                        <a href="minuman.php"><button class="btn-tambah-menu mt-2">Tambah Minuman</button></a>
+                        <a href="makanan.php"><button class="btn-tambah-menu mt-2">Tambah Makanan</button></a>
+
                     </div>
                 </div>
 
@@ -158,6 +164,23 @@ include("head.php");
 
     ?>
 
+    <script src="../assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function pesan() {
+            Swal.fire({
+                title: 'Siap untuk melakukan pesanan?',
+                showCancelButton: true,
+                cancelButtonText: 'Batal',
+                confirmButtonText: 'Ok',
+                cancelButtonColor: '#d33',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    window.location = "order.php";
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

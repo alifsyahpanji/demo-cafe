@@ -15,7 +15,7 @@ $row_pesanan = mysqli_fetch_assoc($run_pesanan);
 
 # SQL Detail Pesanan
 
-$sql_detail_pesanan = "SELECT detail_pesanan.jumlah, detail_pesanan.jumlah * detail_pesanan.harga AS total_harga_item, menu.nama, menu.foto FROM pesanan INNER JOIN detail_pesanan ON pesanan.id = detail_pesanan.id_pesanan INNER JOIN menu ON detail_pesanan.id_menu = menu.id WHERE pesanan.id = $id_pesanan AND pesanan.id_akun = $id_akun ";
+$sql_detail_pesanan = "SELECT detail_pesanan.jumlah, detail_pesanan.keterangan, detail_pesanan.jumlah * detail_pesanan.harga AS total_harga_item, menu.nama, menu.foto FROM pesanan INNER JOIN detail_pesanan ON pesanan.id = detail_pesanan.id_pesanan INNER JOIN menu ON detail_pesanan.id_menu = menu.id WHERE pesanan.id = $id_pesanan AND pesanan.id_akun = $id_akun ";
 $run_detail_pesanan = mysqli_query($conn, $sql_detail_pesanan);
 $count_detail_pesanan = mysqli_num_rows($run_detail_pesanan);
 
@@ -120,6 +120,9 @@ include("head.php");
                                     <?php echo rupiah($row_detail_pesanan["total_harga_item"]); ?>
                                 </span></div>
 
+                            <div>Keterangan: <span class="fw-bolder">
+                                    <?php echo $row_detail_pesanan["keterangan"]; ?>
+                                </span></div>
 
                         </div>
                     </div>

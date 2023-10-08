@@ -81,6 +81,14 @@ nav {
     width: 290px;
 }
 
+.btn-tambah-menu {
+    background-color: #8E2DE2;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
 
 @media only screen and (orientation: landscape) {
     nav {
