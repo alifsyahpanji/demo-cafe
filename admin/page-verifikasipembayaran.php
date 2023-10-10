@@ -6,7 +6,7 @@ include("../env.php");
 
 # SQL Pesanan
 
-$sql_pesanan = "SELECT pesanan.total_harga, akun.nama FROM pesanan INNER JOIN akun ON pesanan.id_akun = akun.id WHERE pesanan.id = $id_pesanan";
+$sql_pesanan = "SELECT pesanan.id, pesanan.total_harga, akun.nama FROM pesanan INNER JOIN akun ON pesanan.id_akun = akun.id WHERE pesanan.id = $id_pesanan";
 $run_pesanan = mysqli_query($conn, $sql_pesanan);
 $row_pesanan = mysqli_fetch_assoc($run_pesanan);
 
@@ -37,11 +37,13 @@ include("../utility/rupiah.php");
                         <?php echo rupiah($row_pesanan["total_harga"]); ?>
                     </span></div>
 
-                <form action="go.php" method="post">
+                <form action="proses-bayar.php" method="post">
                     <div class="mt-3 mb-3">
-                        <label for="jumlahpembayaran" class="form-label">Jumlah Pembayaran:</label>
+                        <label for="jumlahpembayaran" class="form-label mb-2">Jumlah Pembayaran: <span
+                                class="fw-bolder">Rp <span id="jmlpembtext"></span>
+                            </span></label>
                         <input type="number" class="form-control" id="jumlahpembayaran" name="jumlahpembayaran"
-                            placeholder="10000" onchange="this.value=this.value.replace(/[\W]/g, '')">
+                            placeholder="10000" onchange="jumlahPembayaran()">
                     </div>
 
                     <button type="button" class="btn btn-success mt-3" onclick="bayar(this.form)">Bayar</button>
@@ -49,8 +51,10 @@ include("../utility/rupiah.php");
 
                     <button type="button" class="btn btn-primary mt-3 ms-2" onclick="history.back()">Kembali</button>
 
-                    <a href="proses-hapuspesanan.php"><button type="button"
-                            class="btn btn-danger mt-3 ms-2">Hapus</button></a>
+                    <button type="button" class="btn btn-danger mt-3 ms-2" onclick="hapus()">Hapus</button>
+
+                    <input type="hidden" name="idpesanan" value="<?php echo $row_pesanan["id"]; ?>">
+                    <input type="hidden" name="totalharga" value="<?php echo $row_pesanan["total_harga"]; ?>">
                 </form>
 
 
@@ -63,11 +67,31 @@ include("../utility/rupiah.php");
 
 
     <div class="blox-nav"></div>
+
+
+    <script>
+        let rupiahFormat = 0;
+
+        function jumlahPembayaran() {
+            const nilai = document.getElementById("jumlahpembayaran");
+            const jmlPembText = document.getElementById("jmlpembtext");
+
+            nilai.value = nilai.value.replace(/[\W]/g, '');
+
+            rupiahFormat = nilai.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            jmlPembText.innerHTML = rupiahFormat;
+
+
+        }
+    </script>
+
+
+
     <script src="../assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script>
         function bayar(form) {
             Swal.fire({
-                title: 'Sudah menerima pembayaran ?',
+                title: `Sudah menerima pembayaran sebesar Rp ${rupiahFormat} ?`,
                 showCancelButton: true,
                 cancelButtonText: 'Batal',
                 confirmButtonText: 'Ok',
@@ -85,6 +109,24 @@ include("../utility/rupiah.php");
                     } else {
                         form.submit();
                     }
+                }
+            })
+        }
+    </script>
+
+
+    <script>
+        function hapus() {
+            Swal.fire({
+                title: 'Apakah anda ingin menghapus pesanan ini ?',
+                showCancelButton: true,
+                cancelButtonText: 'Batal',
+                confirmButtonText: 'Ok',
+                cancelButtonColor: '#d33',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    window.location = "proses-hapuspesanan.php?id=<?php echo $id_pesanan; ?>";
                 }
             })
         }

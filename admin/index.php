@@ -18,24 +18,19 @@
                 </div>
 
                 <div class="mt3 mb-3">
-                    <div><a href="" class="a-pannel-menu"><button class="btn-menu-panel"><img
+                    <div><a href="page-pembayaranselesai.php" class="a-pannel-menu"><button class="btn-menu-panel"><img
                                     src="../assets/admin/pembayaran-selesai.png" class="icon-menu-panel" alt=""> <span
                                     class="title-panel-menu">Pembayaran Selesai</span></button></a></div>
                 </div>
 
 
                 <div class="mt3 mb-3">
-                    <div><a href="" class="a-pannel-menu"><button class="btn-menu-panel"><img
+                    <div><a href="page-pesanan.php" class="a-pannel-menu"><button class="btn-menu-panel"><img
                                     src="../assets/admin/proses-pesanan.png" class="icon-menu-panel" alt=""> <span
-                                    class="title-panel-menu">Proses Pesanan</span></button></a></div>
+                                    class="title-panel-menu">Pesanan</span></button></a></div>
                 </div>
 
 
-                <div class="mt3 mb-3">
-                    <div><a href="" class="a-pannel-menu"><button class="btn-menu-panel"><img
-                                    src="../assets/admin/pesanan-selesai.png" class="icon-menu-panel" alt=""> <span
-                                    class="title-panel-menu">Pesanan Selesai</span></button></a></div>
-                </div>
 
                 <div class="mt3 mb-3">
                     <div><a href="" class="a-pannel-menu"><button class="btn-menu-panel"><img
