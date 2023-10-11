@@ -1,0 +1,18 @@
+body {
+    background-image: linear-gradient(to right, #8E2DE2, #4A00E0);
+}
+
+.container-center {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title-login {
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}

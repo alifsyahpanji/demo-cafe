@@ -33,21 +33,21 @@
 
 
                 <div class="mt3 mb-3">
-                    <div><a href="" class="a-pannel-menu"><button class="btn-menu-panel"><img
+                    <div><a href="page-pendapatan.php" class="a-pannel-menu"><button class="btn-menu-panel"><img
                                     src="../assets/admin/pendapatan.png" class="icon-menu-panel" alt=""> <span
                                     class="title-panel-menu">Pendapatan</span></button></a></div>
                 </div>
 
 
                 <div class="mt3 mb-3">
-                    <div><a href="" class="a-pannel-menu"><button class="btn-menu-panel"><img
+                    <div><a href="page-member.php" class="a-pannel-menu"><button class="btn-menu-panel"><img
                                     src="../assets/admin/member.png" class="icon-menu-panel" alt=""> <span
                                     class="title-panel-menu">Member</span></button></a></div>
                 </div>
 
 
                 <div class="mt3 mb-3">
-                    <div><a href="" class="a-pannel-menu"><button class="btn-menu-panel"><img
+                    <div><a href="login.html" class="a-pannel-menu"><button class="btn-menu-panel"><img
                                     src="../assets/admin/logout.png" class="icon-menu-panel" alt=""> <span
                                     class="title-panel-menu">Logout</span></button></a></div>
                 </div>
