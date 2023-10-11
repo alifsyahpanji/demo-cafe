@@ -19,14 +19,14 @@ if ($count_get_telepon > 0) {
     $row_get_telepon = mysqli_fetch_assoc($run_get_telepon);
 
     if ($row_get_telepon["id"] == $id_akun) {
-        $sql_update = "UPDATE akun SET telepon = '$telepon', nama = '$nama' ";
+        $sql_update = "UPDATE akun SET telepon = '$telepon', nama = '$nama' WHERE id = $id_akun";
         $run_update = mysqli_query($conn, $sql_update);
         $datastatus = true;
     }
 
 
 } else {
-    $sql_update = "UPDATE akun SET telepon = '$telepon', nama = '$nama' ";
+    $sql_update = "UPDATE akun SET telepon = '$telepon', nama = '$nama' WHERE id = $id_akun";
     $run_update = mysqli_query($conn, $sql_update);
     $datastatus = true;
 }
