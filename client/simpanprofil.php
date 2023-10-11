@@ -1,6 +1,6 @@
 <?php
+include("ceksession.php");
 
-$id_akun = 1;
 
 $telepon = $_POST["telepon"];
 $nama = $_POST["nama"];
