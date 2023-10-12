@@ -10,9 +10,28 @@ body {
     flex-direction: column;
 }
 
+.container-title-login {
+    width: 290px;
+    margin-bottom: 20px;
+    overflow-wrap: break-word;
+}
+
 .title-login {
     color: white;
     font-size: 40px;
     font-weight: 700;
-    margin-bottom: 30px;
+    text-align: center;
+    padding: 20px;
+
+}
+
+.card-margin {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+@media only screen and (orientation: landscape) {
+    .card-margin {
+        width: 550px;
+    }
 }
